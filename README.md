@@ -70,3 +70,23 @@ sudo apt-get install apache2 -y
 sudo apt-get install unzip -y
 sudo apt-get install git -y
 ```
+
+### General Packer info
+To validate a packer template file, run
+
+```
+> packer validate example.json
+```
+This will validate your example.json file to be valid and ready to build.
+
+### Build the AWS AMI via Packer
+```
+> packer build -var 'aws_access_key=XXX' -var 'aws_secret_key=YYY' example.json
+```
+if your build succeeds, you get a console output like this:
+
+```
+==> Builds finished. The artifacts of successful builds are:
+--> amazon-ebs: AMIs were created:
+us-east-1: ami-00322058b6c6f9b83
+```
